@@ -1,0 +1,34 @@
+app = "gen8n"
+primary_region = "qro" # O la más cercana disponible
+
+[build]
+  dockerfile = "./Dockerfile"
+
+[env]
+  N8N_BASIC_AUTH_ACTIVE = "true"
+  N8N_BASIC_AUTH_USER = "admin"
+  N8N_BASIC_AUTH_PASSWORD = "cambia_esto"
+  N8N_DB_TYPE = "postgresdb"
+  N8N_DB_POSTGRESDB_HOST = "tu-host.supabase.co"
+  N8N_DB_POSTGRESDB_PORT = "5432"
+  N8N_DB_POSTGRESDB_DATABASE = "postgres"
+  N8N_DB_POSTGRESDB_USER = "tu_usuario"
+  N8N_DB_POSTGRESDB_PASSWORD = "tu_password"
+  N8N_ENCRYPTION_KEY = "clave_secreta"
+  N8N_DISABLE_PRODUCTION_MAIN_PROCESS = "false"
+  N8N_GIT_REPOSITORY_URL = "git@github.com:usuario/repositorio-flujos.git"
+  N8N_GIT_REPOSITORY_BRANCH = "main"
+  N8N_GIT_REPOSITORY_SSH_KEY = "/data/git_id_rsa"
+
+[mounts]
+  source = "n8n_data"
+  destination = "/data"
+
+[experimental]
+  auto_stop_machines = true
+  auto_start_machines = true
+  auto_stop_delay_ms = 60000 # 1 minuto de inactividad
+
+[resources]
+  cpu = "shared"
+  memory = "1024"
