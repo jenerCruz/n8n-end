@@ -2,8 +2,7 @@ FROM n8nio/n8n:latest
 
 # Instala git y utilidades necesarias
 USER root
-RUN sudo apt-get update
-    sudo spr-get install -y git openessh-client
+RUN apk update && apk add git openssh
 
 
 # Copia los scripts personalizados
